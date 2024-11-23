@@ -6,10 +6,10 @@
       <input id="nome" formControlName="nome" type="text" placeholder="Seu nome" />
   
       <label for="cpf">CPF</label>
-      <input id="cpf" formControlName="cpf" type="text" placeholder="000.000.000-00" />
+      <input id="cpf" formControlName="cpf" type="text" placeholder="000.000.000-00" (input)="formatCpf($event)"/>
   
       <label for="telefone">Telefone</label>
-      <input id="telefone" formControlName="telefone" type="tel" placeholder="(00) 00000-0000" />
+      <input id="telefone" formControlName="telefone" type="tel" placeholder="(00) 00000-0000" (input)="formatTelefone($event)" />
   
       <label for="logradouro">Logradouro</label>
       <input id="logradouro" formControlName="logradouro" type="text" placeholder="Rua, Avenida, etc." />
