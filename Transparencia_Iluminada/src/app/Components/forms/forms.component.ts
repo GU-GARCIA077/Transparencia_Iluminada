@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angula
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { Protocolo } from '../../Interfaces/protocolo';
+import { ApiService } from '../../services/api-comunica.service'; 
 
 @Component({
   selector: 'app-forms',
@@ -15,7 +16,7 @@ export class FormsComponent {
   formulario: FormGroup;
   protocolo: string | null = null;
 
-  constructor(private fb: FormBuilder, private http: HttpClient) {
+  constructor(private fb: FormBuilder, private apiService: ApiService) {
     this.formulario = this.fb.group({
       nome: ['', Validators.required],
       cpf: ['', [Validators.required, Validators.pattern(/^\d{3}\.\d{3}\.\d{3}-\d{2}$/)]],
@@ -70,8 +71,8 @@ formatTelefone(event: Event) {
   onSubmit() {
     if (this.formulario.valid) {
       const protocoloData:Protocolo= this.formulario.value;
-      const apiUrl = 'https://sua-api.com/gerar-protocolo'; // Substitua pelo endpoint real
-      this.http.post<{ protocolo: string }>(apiUrl, protocoloData).subscribe(
+      
+      this.apiService.enviarProtocolo(protocoloData).subscribe(
         (response) => {
           this.protocolo = response.protocolo;
         },
