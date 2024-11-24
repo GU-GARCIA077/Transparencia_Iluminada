@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { Protocolo } from '../../Interfaces/protocolo';
 
 @Component({
   selector: 'app-forms',
@@ -68,8 +69,9 @@ formatTelefone(event: Event) {
 
   onSubmit() {
     if (this.formulario.valid) {
+      const protocoloData:Protocolo= this.formulario.value;
       const apiUrl = 'https://sua-api.com/gerar-protocolo'; // Substitua pelo endpoint real
-      this.http.post<{ protocolo: string }>(apiUrl, this.formulario.value).subscribe(
+      this.http.post<{ protocolo: string }>(apiUrl, protocoloData).subscribe(
         (response) => {
           this.protocolo = response.protocolo;
         },

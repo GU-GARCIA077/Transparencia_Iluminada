@@ -23,7 +23,7 @@
   }
   
   button {
-    background: #007bff;
+    background: #ff6600;
     color: #fff;
     border: none;
     cursor: pointer;
@@ -31,7 +31,8 @@
   }
   
   button:hover {
-    background: #0056b3;
+    background: #ffcc66;
+    color: black;
   }
   
   .protocolo {

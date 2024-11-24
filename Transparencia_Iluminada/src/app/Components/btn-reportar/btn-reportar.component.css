@@ -33,6 +33,7 @@ section {
 /* Efeito de hover no botão */
 .example-button-row a:hover {
     background-color: #FF6600;  /* Cor de fundo mais escura quando o mouse passa sobre o botão */
+    color: black;
 }
 
 /* Estilo para o container flexível */
